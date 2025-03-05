@@ -1,6 +1,6 @@
 package javafinalproject; 
 import java.util.Scanner; 
-
+ 
 public class MultipleChoiceQuestions { 
 public static void main(String[] args) { 
     Scanner scnr = new Scanner(System.in); 
