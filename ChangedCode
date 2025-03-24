@@ -1,0 +1,157 @@
+package JavaQuest;
+
+import java.util.Scanner;
+public class newfix {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		  Scanner scnr = new Scanner(System.in);
+
+	        // Answers for the questions
+	        String[] easyAnswers = {"b", "a", "d", "b", "c"};
+	        String[] mediumAnswers = {"c", "b", "a", "c", "b"};
+	        String[] hardAnswers = {"a", "d", "b", "c", "a"};
+
+	        // Explanations
+	        String[] explanations = {
+	            "James Gosling is known as the creator of Java. He developed Java in 1995.",
+	            "Java is platform-independent because it can run on any device or operating system without modification.",
+	            "A package in Java is a collection of classes and interfaces that are grouped together to organize the code.",
+	            "Arrays in Java store multiple values of the same data type in a single variable.",
+	            "JDK (Java Development Kit) is used to compile, debug, and execute Java programs."
+	        };
+
+	        // EASY Questions and Answer Choices
+	        String[] easyQuestions = {
+	            "Who invented Java Programming?",
+	            "Which statement is true about Java?",
+	            "What is the correct definition of a package?",
+	            "What are arrays in Java?",
+	            "Which component is used to compile, debug and execute the Java programs?"
+	        };
+
+	        String[][] easyChoices = {
+	            {"a) Guido van Rossum", "b) James Gosling", "c) Dennis Ritchie", "d) Bjarne Stroustrup"},
+	            {"a) Java is platform-independent", "b) Java only works on Windows", "c) Java uses pointers", "d) Java cannot run on Linux"},
+	            {"a) A single class", "b) A function library", "c) A collection of unrelated files", "d) A collection of classes and interfaces"},
+	            {"a) Arrays are primitive types", "b) Arrays store multiple values", "c) Java does not support arrays", "d) Arrays must always be sorted"},
+	            {"a) JVM", "b) JRE", "c) JDK", "d) JIT Compiler"}
+	        };
+
+	        // MEDIUM Questions and Answer Choices
+	        String[] mediumQuestions = {
+	            "How do you create a variable with the numeric value 5?",
+	            "What is method overloading in Java?",
+	            "Which keyword is used to define a subclass?",
+	            "What does the ‘super’ keyword do?",
+	            "Which of the following is a feature of Java’s garbage collection?"
+	        };
+
+	        String[][] mediumChoices = {
+	            {"a) num = 5", "b) int x = \"5\";", "c) int x = 5;", "d) x = int(5);"},
+	            {"a) Defining multiple methods with the same name but different parameters", "b) A method calling another method", "c) Overriding a method in a subclass", "d) Using a method without defining it"},
+	            {"a) extends", "b) implements", "c) static", "d) new"},
+	            {"a) Calls a subclass constructor", "b) Calls a superclass constructor", "c) Calls a static method", "d) Calls a private method"},
+	            {"a) It removes unused objects automatically", "b) It forces variables to be initialized", "c) It removes duplicate objects", "d) It prevents memory leaks"}
+	        };
+
+	        // HARD Questions and Answer Choices
+	        String[] hardQuestions = {
+	            "In Java, what exception is thrown when dividing by zero?",
+	            "Which situation calls the finalize() method?",
+	            "Which of the following is a type of polymorphism in Java?",
+	            "What is truncation in Java?",
+	            "Why use the ‘volatile’ keyword in Java?"
+	        };
+
+	        String[][] hardChoices = {
+	            {"a) ArithmeticException", "b) NullPointerException", "c) ClassCastException", "d) NumberFormatException"},
+	            {"a) When an object is initialized", "b) When a variable is declared", "c) When garbage collection is performed", "d) When a class is imported"},
+	            {"a) Static and dynamic polymorphism", "b) Method overriding and method overloading", "c) Inheritance and encapsulation", "d) Static and abstract polymorphism"},
+	            {"a) Removing decimal points in float values", "b) Converting a large number to a smaller data type", "c) Rounding up numbers", "d) Converting an integer to a string"},
+	            {"a) To prevent data inconsistency in multithreading", "b) To allow Java to use pointers", "c) To increase the speed of loops", "d) To make a variable private"}
+	        };
+
+	        // Start Quiz
+	        int easyScore = 0, mediumScore = 0, hardScore = 0;
+
+	        System.out.println("Welcome to Java Quiz!");
+
+	        // EASY Questions
+	        System.out.println("\nEASY Questions:");
+	        for (int i = 0; i < easyQuestions.length; i++) {
+	            System.out.println((i + 1) + ". " + easyQuestions[i]);
+
+	            for (String choice : easyChoices[i]) {
+	                System.out.println(choice);
+	            }
+
+	            System.out.print("Your answer: ");
+	            String answer = scnr.nextLine();
+
+	            if (answer.equalsIgnoreCase(easyAnswers[i])) {
+	                System.out.println("Correct!\n");
+	                easyScore++;
+	            } else {
+	                System.out.println("Incorrect! The correct answer is: " + easyAnswers[i]);
+	                System.out.println("Explanation: " + explanations[i] + "\n");
+	            }
+	        }
+
+	        // MEDIUM Questions
+	        System.out.println("\nMEDIUM Questions:");
+	        for (int i = 0; i < mediumQuestions.length; i++) {
+	            System.out.println((i + 1) + ". " + mediumQuestions[i]);
+
+	            for (String choice : mediumChoices[i]) {
+	                System.out.println(choice);
+	            }
+
+	            System.out.print("Your answer: ");
+	            String answer = scnr.nextLine();
+
+	            if (answer.equalsIgnoreCase(mediumAnswers[i])) {
+	                System.out.println("Correct!\n");
+	                mediumScore++;
+	            } else {
+	                System.out.println("Incorrect! The correct answer is: " + mediumAnswers[i]);
+	                System.out.println("Explanation: " + explanations[i + easyQuestions.length] + "\n");
+	            }
+	        }
+
+	        // HARD Questions
+	        System.out.println("\nHARD Questions:");
+	        for (int i = 0; i < hardQuestions.length; i++) {
+	            System.out.println((i + 1) + ". " + hardQuestions[i]);
+
+	            for (String choice : hardChoices[i]) {
+	                System.out.println(choice);
+	            }
+
+	            System.out.print("Your answer: ");
+	            String answer = scnr.nextLine();
+
+	            if (answer.equalsIgnoreCase(hardAnswers[i])) {
+	                System.out.println("Correct!\n");
+	                hardScore++;
+	            } else {
+	                System.out.println("Incorrect! The correct answer is: " + hardAnswers[i]);
+	                System.out.println("Explanation: " + explanations[i + easyQuestions.length + mediumQuestions.length] + "\n");
+	            }
+	        }
+
+	        // Final Score
+	        System.out.println("\nYour final scores are:");
+	        System.out.println("EASY: " + easyScore + "/" + easyQuestions.length);
+	        System.out.println("MEDIUM: " + mediumScore + "/" + mediumQuestions.length);
+	        System.out.println("HARD: " + hardScore + "/" + hardQuestions.length);
+
+	        scnr.close();
+	    }
+	
+
+
+	}
+
+
