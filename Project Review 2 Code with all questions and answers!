@@ -1,13 +1,17 @@
 package javaQuestProject;
 
+//scanner is imported to read input from the user
 import java.util.Scanner;
 
+//class declaration
 public class JavaQuest {
 
+//main method
 		public static void main(String[] args) {
 	        Scanner scnr = new Scanner(System.in);
 
-	        // Answers
+	        // Predefined Answers! Each Array stores the correct answer for each difficulty level!
+
 	        String[] easyAnswers = {
 	            "b", "a", "d", "b", "c", "b", "b", "a", "a", "b", "a", "b", "d", "c", "c"
 	        };
@@ -18,7 +22,8 @@ public class JavaQuest {
 	            "a", "b", "b", "b", "c", "c", "b", "b", "c", "a", "d", "a", "a", "a", "d"
 	        };
 
-	        // Explanations
+	        //The Explanations for each question are categorized by difficulty levels, and we created a separate array for just the explanations! So the array "explanations" contains all the explanations to the questions to better assist the player/user.
+
 	        String[] explanations = {
 	           // Easy
 	            "James Gosling created Java in 1995 while working at Sun Microsystems.",
@@ -73,7 +78,8 @@ public class JavaQuest {
 	            "You can only define one public class per `.java` file."
 	        };
 
-	        // Questions and Choices for EASY
+	        // Questions and Choices for EASY array! We made several arrays that would include the questions, explanations, choices, and answers based on each difficulty level
+
 	        String[] easyQuestions = {
 	            "Who invented Java Programming?",
 	            "Which statement is true about Java?",
@@ -183,24 +189,40 @@ public class JavaQuest {
 	            {"a) Only one class", "b) One class and one interface", "c) Must have public class", "d) At most one public class"}
 	        };
 
-	        // Score trackers
+	        // These variables will keep track of the user's score for each difficulty level.
+
 	        int easyScore = 0, mediumScore = 0, hardScore = 0;
 
-	        System.out.println("Welcome to Java Quiz!");
+//displaying a welcoming message! Our goal is to make this game worth playing and learning for the benefit of the user!
 
-	        // Function to run quiz by difficulty
+
+	        System.out.println("Welcome to Java Quest BUDDY!");
+
+	        // Function to run quiz by difficulty, The program calls the runQuiz() method for each difficulty level (EASY, MEDIUM, HARD).Each call to runQuiz() passes:The Scanner object for user input, The difficulty level as a string (e.g., "EASY").
+,The corresponding questions, choices, answers, and explanations, and the offset is The offset used for managing explanations based on the difficulty levels so that it does not mix up!
+
 	        easyScore = runQuiz(scnr, "EASY", easyQuestions, easyChoices, easyAnswers, explanations, 0);
 	        mediumScore = runQuiz(scnr, "MEDIUM", mediumQuestions, mediumChoices, mediumAnswers, explanations, easyQuestions.length);
 	        hardScore = runQuiz(scnr, "HARD", hardQuestions, hardChoices, hardAnswers, explanations, easyQuestions.length + mediumQuestions.length);
 
-	        // Show final score
+	        // Show final score. After all quizzes have been run, the program prints the user's scores for each difficulty level.
 	        System.out.println("\nYour final scores:");
 	        System.out.println("EASY: " + easyScore + "/" + easyQuestions.length);
 	        System.out.println("MEDIUM: " + mediumScore + "/" + mediumQuestions.length);
 	        System.out.println("HARD: " + hardScore + "/" + hardQuestions.length);
 
+//closing the scanner
+
 	        scnr.close();
 	    }
+
+//The runQuiz() method is responsible for running each individual quiz (for one difficulty level) and keeping track of the score.
+//int offset: This keeps track of the index in the explanations array (as each difficulty level has its own set of explanations).
+//If the user's answer matches the correct answer (ignoring case), the score increases, and a "Correct!" message is displayed.
+//If the answer is incorrect, the program provides the correct answer and explanation.
+//The method returns the score after all questions for the current level are answered.
+//questions.length is used to get the total number of questions in the array questions.
+
 
 	    public static int runQuiz(Scanner scnr, String level, String[] questions, String[][] choices, String[] answers, String[] explanations, int offset) {
 	        int score = 0;
