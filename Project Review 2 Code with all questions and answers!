@@ -1,0 +1,228 @@
+package javaQuestProject;
+
+import java.util.Scanner;
+
+public class JavaQuest {
+
+		public static void main(String[] args) {
+	        Scanner scnr = new Scanner(System.in);
+
+	        // Answers
+	        String[] easyAnswers = {
+	            "b", "a", "d", "b", "c", "b", "b", "a", "a", "b", "a", "b", "d", "c", "c"
+	        };
+	        String[] mediumAnswers = {
+	            "c", "c", "b", "b", "a", "b", "b", "d", "a", "b", "b", "d", "a", "c", "c"
+	        };
+	        String[] hardAnswers = {
+	            "a", "b", "b", "b", "c", "c", "b", "b", "c", "a", "d", "a", "a", "a", "d"
+	        };
+
+	        // Explanations
+	        String[] explanations = {
+	           // Easy
+	            "James Gosling created Java in 1995 while working at Sun Microsystems.",
+	            "Java is platform-independent because of the JVM (Java Virtual Machine).",
+	            "A package in Java is a group of related classes and interfaces.",
+	            "Arrays in Java store multiple values of the same type in a single variable.",
+	            "JDK includes tools for development, including the compiler and debugger.",
+	            "Java does not support explicit pointer use, unlike C/C++.",
+	            "‘this’ can be used for referencing current object and constructor chaining.",
+	            "System.out.println() is the correct syntax to print in Java.",
+	            "The correct type for storing text is `String` (capital S).",
+	            "Use square brackets `[]` to declare an array.",
+	            "The `+` operator adds values together in Java.",
+	            "`import` is used to bring in Java library classes.",
+	            "Correct syntax is: `MyClass myObj = new MyClass();`",
+	            "Use the `return` keyword to return a value from a method.",
+	            "Use the `class` keyword to declare a class in Java.",
+
+	            // Medium
+	            "Use `int x = 5;` to declare an integer variable with value 5.",
+	            "Use `float x = 2.8f;` to store floating-point numbers.",
+	            "A subclass inherits methods from its superclass.",
+	            "`equals()` compares the content of objects, not references.",
+	            "`instanceof` checks whether an object is an instance of a class.",
+	            "Java uses automatic memory management with garbage collection.",
+	            "Static members belong to the class, not instances.",
+	            "Static inner classes are declared using `static class` inside a class.",
+	            "Method overloading is using the same method name with different parameters.",
+	            "Abstract classes cannot be instantiated directly.",
+	            "`hashCode()` should be consistent with `equals()` for collections to work properly.",
+	            "`External inner class` is not a valid term in Java.",
+	            "`Object` is the root class of all Java classes.",
+	            "`Math.max(x, y)` returns the maximum of two values.",
+	            "Java supports both `// single-line` and `/* multi-line */` comments.",
+
+	            // Hard
+	            "`ArithmeticException` is thrown when dividing by zero.",
+	            "`finalize()` is called before garbage collection.",
+	            "Java supports compile-time (overloading) and runtime (overriding) polymorphism.",
+	            "Truncation means converting a floating-point value to an integer.",
+	            "The `volatile` keyword signals a variable might change unexpectedly (thread safety).",
+	            "The `finally` block always executes, regardless of exception.",
+	            "Lambda expressions implement functional interfaces concisely.",
+	            "`StringBuilder` is mutable and used for efficient string manipulation.",
+	            "All exceptions derive from the `Throwable` class.",
+	            "A try block can have multiple catch blocks and one finally block.",
+	            "Suppressed exceptions are stored when exceptions occur in try-with-resources.",
+	            "`FileNotFoundException` is a subclass of `IOException`, so it must come first.",
+	            "You cannot mix different types in the same variable declaration.",
+	            "`Character` and `Integer` are not exceptions, but `char` → `Character`, not `Char`.",
+	            "Float is 32-bit, Double is 64-bit.",
+	            "You can only define one public class per `.java` file."
+	        };
+
+	        // Questions and Choices for EASY
+	        String[] easyQuestions = {
+	            "Who invented Java Programming?",
+	            "Which statement is true about Java?",
+	            "What is the correct definition of a package?",
+	            "What are arrays in Java?",
+	            "Which component is used to compile, debug and execute the Java programs?",
+	            "Which one of the following is not a Java feature?",
+	            "What is not the use of “this” keyword in Java?",
+	            "What is a correct syntax to output \"Hello World\" in Java?",
+	            "Which data type is used to create a variable that should store text?",
+	            "To declare an array in Java, define the variable type with:",
+	            "Which operator is used to add together two values?",
+	            "Which keyword is used to import a package from the Java API library?",
+	            "What is the correct way to create an object called myObj of MyClass?",
+	            "Which keyword is used to return a value inside a method?",
+	            "Which keyword is used to create a class in Java?"
+	        };
+	        String[][] easyChoices = {
+	            {"a) Guido van Rossum", "b) James Gosling", "c) Dennis Ritchie", "d) Bjarne Stroustrup"},
+	            {"a) Java is platform-independent", "b) Java only works on Windows", "c) Java uses pointers", "d) Java cannot run on Linux"},
+	            {"a) A single class", "b) A function library", "c) A collection of unrelated files", "d) A collection of classes and interfaces"},
+	            {"a) Arrays are primitive types", "b) Arrays store multiple values", "c) Java does not support arrays", "d) Arrays must always be sorted"},
+	            {"a) JVM", "b) JRE", "c) JDK", "d) JIT Compiler"},
+	            {"a) Object-oriented", "b) Use of pointers", "c) Portable", "d) Dynamic and Extensible"},
+	            {"a) Referring to the instance variable", "b) Passing itself to the method", "c) Passing to another class", "d) Constructor chaining"},
+	            {"a) System.out.println(\"Hello World\");", "b) print (\"Hello World\");", "c) Console.WriteLine(\"Hello World\");", "d) echo(\"Hello World\");"},
+	            {"a) String", "b) myString", "c) string", "d) Txt"},
+	            {"a) ()", "b) []", "c) \\", "d) {}"},
+	            {"a) +", "b) -", "c) &", "d) *"},
+	            {"a) Package", "b) Import", "c) Getlib", "d) lib"},
+	            {"a) new myObj = MyClass();", "b) class MyClass = new myObj();", "c) class myObj = new MyClass();", "d) MyClass myObj = new MyClass();"},
+	            {"a) get", "b) break", "c) return", "d) void"},
+	            {"a) MyClass", "b) class()", "c) class", "d) className"}
+	        };
+
+	        // Questions and Choices for MEDIUM
+	        String[] mediumQuestions = {
+	            "How do you create a variable with the numeric value 5?",
+	            "How do you create a variable with the floating number 2.8?",
+	            "In Java, which statement about inheritance is true?",
+	            "What is the result of using the equals() method in Java?",
+	            "What is the purpose of the instanceof operator in Java?",
+	            "Which of the following is a feature of Java’s garbage collection?",
+	            "Which of the following statements about static members is true?",
+	            "Which of the following is a correct way to declare a static inner class?",
+	            "In Java, what is method overloading?",
+	            "What does it mean when a class is declared as abstract?",
+	            "What is the significance of overriding the hashCode() method?",
+	            "Which of the following is NOT a type of inner class?",
+	            "Which of the following is true about the Object class in Java?",
+	            "Which method can be used to find the highest value of x and y?",
+	            "How do you insert COMMENTS in Java code?"
+	        };
+	        String[][] mediumChoices = {
+	            {"a) num = 5", "b) int x = \"5\";", "c) int x = 5;", "d) x = int(5);"},
+	            {"a) x = 2.8f;", "b) byte x = 2.8f", "c) float x = 2.8f", "d) int x = 2.8f;"},
+	            {"a) A class can extend multiple classes", "b) A subclass inherits methods from its superclass", "c) Only interfaces support inheritance", "d) Constructors are inherited"},
+	            {"a) Compares references", "b) Compares object content", "c) Must override equals in every class", "d) Compares types"},
+	            {"a) To check object type", "b) To create an object", "c) To cast a type", "d) To compare objects"},
+	            {"a) Manual memory", "b) Automatic memory", "c) Explicit allocation", "d) None"},
+	            {"a) Instance level", "b) Can be accessed without instance", "c) Can't be inherited", "d) Must be private"},
+	            {"a) Outer { static class Inner {} }", "b) Outer { Inner static {} }", "c) static Outer { class Inner {} }", "d) class Outer { static class Inner {} }"},
+	            {"a) Same name, different parameters", "b) Same name, same parameters", "c) Override in subclass", "d) Same name in packages"},
+	            {"a) No constructors", "b) Cannot be instantiated", "c) No fields", "d) Cannot implement interfaces"},
+	            {"a) Change hashing", "b) Consistency with equals", "c) Improve speed", "d) Object cloning"},
+	            {"a) Member inner", "b) Local inner", "c) Anonymous inner", "d) External inner"},
+	            {"a) Superclass of all classes", "b) Cannot be extended", "c) Abstract methods only", "d) Not in Java API"},
+	            {"a) Math.largest(x,y)", "b) Math.maximum(x,y)", "c) Math.max(x,y)", "d) Math.maxNum(x,y)"},
+	            {"a) /* Comment */", "b) # Comment", "c) // Comment", "d) */ Comment"}
+	        };
+
+	        // Questions and Choices for HARD
+	        String[] hardQuestions = {
+	            "In the execution of the divided by zero statement, which exception is thrown?",
+	            "Under which situation is the finalize() method called?",
+	            "Which of the following is a type of polymorphism in Java?",
+	            "What is Truncation in Java?",
+	            "Why use the ‘volatile’ keyword in Java?",
+	            "What does the ‘finally’ block execute in Java?",
+	            "What is a Lambda Expression used for?",
+	            "What is the primary role of the ‘StringBuilder’ class?",
+	            "The closest common ancestor of RuntimeException, Error, etc. is:",
+	            "Which statement is true about exception handling in Java?",
+	            "In try-with-resources, suppressed exceptions appear as:",
+	            "Handling IOException before FileNotFoundException results in:",
+	            "Which declaration does not compile?",
+	            "Which two primitives have wrappers not named as primitive + uppercase?",
+	            "Choose the correct size of float and double in Java.",
+	            "Which statement about a valid .java file is true?"
+	        };
+	        String[][] hardChoices = {
+	            {"a) ArithmeticException", "b) NullPointerException", "c) ClassCastException", "d) NumberFormatException"},
+	            {"a) Object initialized", "b) Before GC", "c) Before variable goes out of scope", "d) On import"},
+	            {"a) Multiple", "b) Compile-time", "c) Multilevel", "d) Execution-time"},
+	            {"a) Float → Float", "b) Float → Int", "c) Int → Float", "d) Double → Float"},
+	            {"a) Value never changes", "b) Single-threaded", "c) May change unexpectedly", "d) Force multithreaded access"},
+	            {"a) Only if exception", "b) Only if no exception", "c) Always", "d) Invalid construct"},
+	            {"a) Anonymous class", "b) Functional interfaces", "c) Encapsulation", "d) Override methods"},
+	            {"a) Immutable strings", "b) Mutable string manipulation", "c) Number formatting", "d) Multithread sync"},
+	            {"a) Object", "b) Exception", "c) Throwable", "d) Catchable"},
+	            {"a) Many catch, one finally", "b) Many catch, many finally", "c) One finally per catch", "d) Must have catch to use finally"},
+	            {"a) ResourceException", "b) HiddenException", "c) CloseableException", "d) SuppressedException"},
+	            {"a) Both run", "b) Only IOException", "c) Only FileNotFound", "d) Won't compile"},
+	            {"a) double num1, int num2 = 0;", "b) int num1, num2;", "c) int num1, num2 = 0;", "d) int num1 = 0, num2 = 0;"},
+	            {"a) byte and char", "b) byte and int", "c) char and int", "d) None"},
+	            {"a) 32 and 64", "b) 64 and 32", "c) 32 and 32", "d) 64 and 64"},
+	            {"a) Only one class", "b) One class and one interface", "c) Must have public class", "d) At most one public class"}
+	        };
+
+	        // Score trackers
+	        int easyScore = 0, mediumScore = 0, hardScore = 0;
+
+	        System.out.println("Welcome to Java Quiz!");
+
+	        // Function to run quiz by difficulty
+	        easyScore = runQuiz(scnr, "EASY", easyQuestions, easyChoices, easyAnswers, explanations, 0);
+	        mediumScore = runQuiz(scnr, "MEDIUM", mediumQuestions, mediumChoices, mediumAnswers, explanations, easyQuestions.length);
+	        hardScore = runQuiz(scnr, "HARD", hardQuestions, hardChoices, hardAnswers, explanations, easyQuestions.length + mediumQuestions.length);
+
+	        // Show final score
+	        System.out.println("\nYour final scores:");
+	        System.out.println("EASY: " + easyScore + "/" + easyQuestions.length);
+	        System.out.println("MEDIUM: " + mediumScore + "/" + mediumQuestions.length);
+	        System.out.println("HARD: " + hardScore + "/" + hardQuestions.length);
+
+	        scnr.close();
+	    }
+
+	    public static int runQuiz(Scanner scnr, String level, String[] questions, String[][] choices, String[] answers, String[] explanations, int offset) {
+	        int score = 0;
+	        System.out.println("\n" + level + " Questions:");
+	        for (int i = 0; i < questions.length; i++) {
+	            System.out.println((i + 1) + ". " + questions[i]);
+	            for (String option : choices[i]) {
+	                System.out.println(option);
+	            }
+	            System.out.print("Your answer: ");
+	            String userAnswer = scnr.nextLine();
+	            if (userAnswer.equalsIgnoreCase(answers[i])) {
+	                System.out.println("Correct!\n");
+	                score++;
+	            } else {
+	                System.out.println("Incorrect! The correct answer is: " + answers[i]);
+	                System.out.println("Explanation: " + explanations[offset + i] + "\n");
+	            }
+	        }
+	        return score;
+	    
+
+	}
+
+}
