@@ -3,17 +3,14 @@ https://www.programiz.com/java-programming/online-compiler/
 ### **Work Division Strategy**  
 
 **Naomi’s Responsibilities – Question Management & Scoring**
-✅ Expand and categorize question sets (Easy, Medium, Hard).
-✅ Implement answer validation to check if a response is correct.
-✅ Provide immediate feedback based on user responses.
-✅ Develop and manage point distribution logic for different difficulties.
+✅ Categorize question (Easy, Medium, Hard), their correct answers and options
+✅ found meme
+
 
 **Aishwarya’s Responsibilities – Game Logic & User Interaction**
-✅ Implement difficulty selection at the start of the game.
-✅ Develop the random question generator to pull from Naomi’s categorized questions.
-✅ Ensure the points system is correctly integrated with gameplay.
-✅ Handle UI components (difficulty selection screen, meme display, scoreboard).
-✅ Integrate memes and fun elements for engagement.
+✅ used file handling to and optimised the quiz questions
+✅ Handle UI components (difficulty selection screen, meme display, scoreboard, score history, login credential or guest profile).
+✅ immediate feedback 
 
 **Why This is Truly Balanced Now:**
 Naomi handles the backend logic (questions, validation, scoring).
