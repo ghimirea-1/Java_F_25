@@ -1,0 +1,318 @@
+EASY
+
+1. Who invented Java Programming?  
+a) Guido van Rossum  
+b) James Gosling  
+c) Dennis Ritchie  
+d) Bjarne Stroustrup  
+Correct Answer: b) James Gosling  
+
+2. Which statement is true about Java?  
+a) Java is a sequence-dependent programming language  
+b) Java is a code dependent programming language  
+c) Java is a platform-dependent programming language  
+d) Java is a platform-independent programming language  
+Correct Answer: d) Java is a platform-independent programming language  
+
+3. What is the correct definition of a package?  
+a) Collection of classes  
+b) Collection of editing tools  
+c) Collection of interfaces  
+d) Collection of interfaces and classes  
+Correct Answer: d) Collection of interfaces and classes  
+
+4. What are arrays in Java?  
+a) Objects  
+b) Primitive data type  
+c) Object references  
+d) None  
+Correct Answer: a) Objects  
+
+5. Which component is used to compile, debug, and execute Java programs?  
+a) JRE  
+b) JIT  
+c) JDK  
+d) JVM  
+Correct Answer: c) JDK  
+
+6. Which one of the following is not a Java feature?  
+a) Object-oriented  
+b) Use of pointers  
+c) Portable  
+d) Dynamic and Extensible  
+Correct Answer: b) Use of pointers  
+
+7. What is not the use of “this” keyword in Java?  
+a) Referring to the instance variable when a local variable has the same name  
+b) Passing itself to the method of the same class  
+c) Passing itself to another method  
+d) Calling another constructor in constructor chaining  
+Correct Answer: b) Passing itself to the method of the same class  
+
+8. What is a correct syntax to output "Hello World" in Java?  
+a) System.out.println("Hello World");  
+b) print("Hello World");  
+c) Console.WriteLine("Hello World");  
+d) echo("Hello World");  
+Correct Answer: a) System.out.println("Hello World");  
+
+9. Which data type is used to create a variable that should store text?  
+a) String  
+b) myString  
+c) string  
+d) Txt  
+Correct Answer: a) String  
+
+10. To declare an array in Java, define the variable type with:  
+a) ()  
+b) []  
+c) \  
+d) {}  
+Correct Answer: b) []  
+
+11. Which operator is used to add together two values?  
+a) + Sign  
+b) - Sign  
+c) & Sign  
+d) * Sign  
+Correct Answer: a) + Sign  
+
+12. Which keyword is used to import a package from the Java API library?  
+a) Package  
+b) Import  
+c) Getlib  
+d) lib  
+Correct Answer: b) Import  
+
+13. What is the correct way to create an object called myObj of MyClass?  
+a) new myObj = MyClass();  
+b) class MyClass = new myObj();  
+c) class myObj = new MyClass();  
+d) MyClass myObj = new MyClass();  
+Correct Answer: d) MyClass myObj = new MyClass();  
+
+14. Which keyword is used to return a value inside a method?  
+a) get  
+b) break  
+c) return  
+d) Void  
+Correct Answer: c) return  
+
+15. Which keyword is used to create a class in Java?  
+a) MyClass  
+b) class()  
+c) class  
+d) className  
+Correct Answer: c) class  
+
+MEDIUM
+
+1. How do you create a variable with the numeric value 5?  
+a) float x = 5;  
+b) x = 5;  
+c) int x = 5;  
+d) num x = 5  
+Correct Answer: c) int x = 5  
+
+2. How do you create a variable with the floating number 2.8?  
+a) x = 2.8f;  
+b) byte x = 2.8f  
+c) float x = 2.8f  
+d) int x = 2.8f;  
+Correct Answer: c) float x = 2.8f  
+
+3. In Java, which statement about inheritance is true?  
+a) A class can extend multiple classes  
+b) A subclass inherits methods from its superclass  
+c) Inheritance can only be achieved through interfaces  
+d) Constructors are inherited by subclasses  
+Correct Answer: b) A subclass inherits methods from its superclass  
+
+4. What is the result of using the equals() method in Java?  
+a) It compares object references  
+b) It compares object content  
+c) It must be overridden in every class  
+d) It compares class types  
+Correct Answer: b) It compares object content  
+
+5. What is the purpose of the instanceof operator in Java?  
+a) To check the type of an object  
+b) To create an instance of a class  
+c) To cast an object to a different type  
+d) To compare two objects  
+Correct Answer: a) To check the type of an object  
+
+6. Which of the following is a feature of Java’s garbage collection?  
+a) Manual memory management  
+b) Automatic memory management  
+c) Explicit memory allocation  
+d) None of the above  
+Correct Answer: b) Automatic memory management  
+
+7. Which of the following statements about static members is true?  
+a) Static members are associated with the instance of a class  
+b) Static members can be accessed without creating an instance of a class  
+c) Static members cannot be inherited  
+d) Static members can only be private  
+Correct Answer: b) Static members can be accessed without creating an instance of a class  
+
+8. Which of the following is a correct way to declare a static inner class?  
+a) public class Outer { static class Inner {} }  
+b) public class Outer { Inner static {} }  
+c) static class Outer { class Inner {} }  
+d) class Outer { static class Inner {} }  
+Correct Answer: a) public class Outer { static class Inner {} }  
+
+9. In Java, what is method overloading?  
+a) Having the same method name with different parameters in the same class  
+b) Having the same method name with the same parameters in different classes  
+c) Changing the method implementation in subclasses  
+d) Using the same method name across different packages  
+Correct Answer: a) Having the same method name with different parameters in the same class  
+
+10. What does it mean when a class is declared as abstract?  
+a) The class cannot have constructors  
+b) The class cannot be instantiated  
+c) The class cannot have fields  
+d) The class cannot implement interfaces  
+Correct Answer: b) The class cannot be instantiated  
+
+11. What is the significance of overriding the hashCode() method?  
+a) To change the default hashing behavior  
+b) To ensure consistent behavior with equals()  
+c) To improve performance  
+d) To enable object cloning  
+Correct Answer: b) To ensure consistent behavior with equals()  
+
+12. Which of the following is NOT a type of inner class?  
+a) Member inner class  
+b) Local inner class  
+c) Anonymous inner class  
+d) External inner class  
+Correct Answer: d) External inner class  
+
+13. Which of the following is true about the Object class in Java?  
+a) It is the superclass of all classes  
+b) It cannot be extended  
+c) It contains only abstract methods  
+d) It is not part of the Java API  
+Correct Answer: a) It is the superclass of all classes  
+
+14. Which method can be used to find the highest value of x and y?  
+a) Math.largest(x,y)  
+b) Math.maximum(x,y)  
+c) Math.max(x,y)  
+d) Math.maxNum(x,y)  
+Correct Answer: c) Math.max(x,y)  
+
+15. How do you insert COMMENTS in Java code?  
+a) /* This is a comment  
+b) # This is a comment  
+c) // This is a comment  
+d) */ This is a comment  
+Correct Answer: c) // This is a comment  
+
+1. In the execution of the divided by zero statement, which of the following exceptions is thrown?  
+a) ArithmeticException  
+b) NumberFormatException  
+c) NullPointerException  
+d) None  
+Correct Answer: a) ArithmeticException  
+
+2. Under which situation, is the finalize() method called?  
+a) Before a variable goes out of scope  
+b) Before garbage collection  
+c) Before an object goes out of scope  
+d) None  
+Correct Answer: b) Before garbage collection  
+
+3. Which of the following is a type of polymorphism in Java Programming?  
+a) Multiple polymorphism  
+b) Compile time polymorphism  
+c) Multilevel polymorphism  
+d) Execution time polymorphism  
+Correct Answer: b) Compile time polymorphism  
+
+4. What is Truncation in Java?  
+a) Floating-point value assigned to a Floating type  
+b) Floating-point value assigned to an integer type  
+c) Integer value assigned to floating type  
+d) Integer value assigned to floating type  
+Correct Answer: b) Floating-point value assigned to an integer type  
+
+5. Why Use the ‘volatile’ Keyword in Java?  
+a) Ensures a variable’s value never changes  
+b) Guarantees single-threaded access to a variable  
+c) Signals that a variable’s value may change unexpectedly  
+d) Forces simultaneous access to a variable by multiple threads  
+Correct Answer: c) Signals that a variable’s value may change unexpectedly  
+
+6. What Does the ‘finally’ Block Execute in Java?  
+a) Only if an exception occurs  
+b) Only if no exception occurs  
+c) Regardless of whether an exception occurs or not  
+d) It’s not a valid construct in Java  
+Correct Answer: c) Regardless of whether an exception occurs or not  
+
+7. What is a Lambda Expression in Java Primarily Used For?  
+a) Defining anonymous classes  
+b) Implementing functional interfaces concisely  
+c) Enforcing encapsulation  
+d) Overriding superclass methods  
+Correct Answer: b) Implementing functional interfaces concisely  
+
+8. What is the Primary Role of the ‘StringBuilder’ Class in Java?  
+a) Represents an immutable sequence of characters  
+b) Provides methods for string manipulation with mutability  
+c) Offers formatting for numeric values  
+d) Manages synchronization in multithreaded applications  
+Correct Answer: b) Provides methods for string manipulation with mutability  
+
+9. The closest common ancestor of RuntimeException, Error, IOException, and ClassNotFoundException is:  
+a) Object  
+b) Exception  
+c) Throwable  
+d) Catchable  
+Correct Answer: c) Throwable  
+
+10. Which of the following statements is true about exception handling in Java?  
+a) A try block can have many catch blocks but only one finally block  
+b) A try block can have many catch blocks and many finally blocks  
+c) A try block must have one finally block for each catch block  
+d) A try block must have at least one catch block to have a finally block  
+Correct Answer: a) A try block can have many catch blocks but only one finally block  
+
+11. If code is structured to handle the IOException before the FileNotFoundException, which of these results is true?  
+a) Both IOException and FileNotFoundException handling routines will run  
+b) Only the IOException handling routine will run  
+c) Only the FileNotFoundException handling routine will run  
+d) The code will not compile  
+Correct Answer: d) The code will not compile  
+
+12. Which of the following declarations does not compile?  
+a) double num1, int num2 = 0;  
+b) int num1, num2;  
+c) int num1, num2 = 0;  
+d) int num1 = 0, num2 = 0;  
+Correct Answer: a) double num1, int num2 = 0;  
+
+13. Which two primitives have wrapper classes that are not merely the name of the primitive with an uppercase letter?  
+a) byte and char  
+b) byte and int  
+c) char and int  
+d) None of the above  
+Correct Answer: c) char and int  
+
+14. Choose the correct size of float and double in Java.  
+a) 32 and 64  
+b) 64 and 32  
+c) 32 and 32  
+d) 64 and 64  
+Correct Answer: a) 32 and 64  
+
+15. Which statement about a valid .java file is true?  
+a) It can only contain one class declaration  
+b) It can contain one public class declaration and one public interface definition  
+c) It must define at least one public class  
+d) It may define at most one public class  
+Correct Answer: d) It may define at most one public class  
