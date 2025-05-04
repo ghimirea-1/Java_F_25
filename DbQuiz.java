@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.Timer;
 
 public class DbQuiz {
     private static JFrame frame;
@@ -31,8 +32,6 @@ public class DbQuiz {
             frame.setSize(500, 450);
             frame.setLocationRelativeTo(null);
             frame.setResizable(true);
-
-            // Add resize listener to adjust component sizes
             frame.addComponentListener(new ComponentAdapter() {
                 @Override
                 public void componentResized(ComponentEvent e) {
@@ -41,14 +40,12 @@ public class DbQuiz {
                     updateCurrentScreen();
                 }
             });
-
             createAndShowLoginGUI();
             frame.setVisible(true);
         });
     }
 
     private static void updateCurrentScreen() {
-        // Rebuild the current screen based on the frame's title
         String title = frame.getTitle();
         if (title.contains("Login")) {
             createAndShowLoginGUI();
@@ -72,21 +69,19 @@ public class DbQuiz {
     private static void createAndShowLoginGUI() {
         frame.getContentPane().removeAll();
         frame.setTitle("Java Quest BUDDY - Login");
-
         JPanel panel = new JPanel(new GridBagLayout());
         panel.setBackground(Color.WHITE);
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets((int) (10 * scaleFactor), (int) (10 * scaleFactor), (int) (10 * scaleFactor), (int) (10 * scaleFactor));
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.weightx = 1.0;
-
-        JLabel titleLabel = new JLabel("Welcome to Java Quest BUDDY");
+        gbc.weighty = 0.1;
+        JLabel titleLabel = new JLabel("Welcome to Java Quest BUDDY", SwingConstants.CENTER);
         titleLabel.setFont(getScaledBoldFont(20));
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.gridwidth = 2;
         panel.add(titleLabel, gbc);
-
         JButton guestButton = new JButton("Continue as Guest");
         guestButton.setFont(getScaledFont(14));
         guestButton.setBackground(new Color(255, 159, 64));
@@ -95,12 +90,10 @@ public class DbQuiz {
         guestButton.addActionListener(e -> createAndShowDifficultyGUI());
         gbc.gridy++;
         panel.add(guestButton, gbc);
-
-        JLabel loginLabel = new JLabel("Or Login with Credentials");
+        JLabel loginLabel = new JLabel("Or Login with Credentials", SwingConstants.CENTER);
         loginLabel.setFont(getScaledFont(16));
         gbc.gridy++;
         panel.add(loginLabel, gbc);
-
         gbc.gridwidth = 1;
         gbc.gridy++;
         panel.add(new JLabel("Name:") {{ setFont(getScaledFont(14)); }}, gbc);
@@ -108,7 +101,6 @@ public class DbQuiz {
         nameField.setFont(getScaledFont(14));
         gbc.gridx = 1;
         panel.add(nameField, gbc);
-
         gbc.gridx = 0;
         gbc.gridy++;
         panel.add(new JLabel("Username:") {{ setFont(getScaledFont(14)); }}, gbc);
@@ -116,7 +108,6 @@ public class DbQuiz {
         usernameField.setFont(getScaledFont(14));
         gbc.gridx = 1;
         panel.add(usernameField, gbc);
-
         gbc.gridx = 0;
         gbc.gridy++;
         panel.add(new JLabel("Password:") {{ setFont(getScaledFont(14)); }}, gbc);
@@ -124,7 +115,6 @@ public class DbQuiz {
         passwordField.setFont(getScaledFont(14));
         gbc.gridx = 1;
         panel.add(passwordField, gbc);
-
         gbc.gridx = 0;
         gbc.gridy++;
         panel.add(new JLabel("Email:") {{ setFont(getScaledFont(14)); }}, gbc);
@@ -132,7 +122,6 @@ public class DbQuiz {
         emailField.setFont(getScaledFont(14));
         gbc.gridx = 1;
         panel.add(emailField, gbc);
-
         JButton loginButton = new JButton("Login");
         loginButton.setFont(getScaledFont(14));
         loginButton.setBackground(new Color(66, 133, 244));
@@ -143,7 +132,6 @@ public class DbQuiz {
         gbc.gridy++;
         gbc.gridwidth = 2;
         panel.add(loginButton, gbc);
-
         frame.add(panel);
         frame.revalidate();
         frame.repaint();
@@ -153,25 +141,21 @@ public class DbQuiz {
         Connection con = null;
         Statement st = null;
         ResultSet rs = null;
-
         try {
             String url = "jdbc:mysql://localhost:3306/quiz_db";
             String username = "root";
             String password = "";
             String query = "SELECT * FROM user_validation";
-
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, username, password);
             st = con.createStatement();
             rs = st.executeQuery(query);
-
             boolean userFound = false;
             while (rs.next()) {
                 String fullName = rs.getString("Full Name");
                 String userName = rs.getString("Username");
                 String passWord = rs.getString("Password");
                 String email = rs.getString("Email");
-
                 if (fullName.equalsIgnoreCase(nameField.getText()) &&
                     userName.equalsIgnoreCase(usernameField.getText()) &&
                     passWord.equalsIgnoreCase(new String(passwordField.getPassword())) &&
@@ -180,12 +164,10 @@ public class DbQuiz {
                     break;
                 }
             }
-
             if (!userFound) {
                 JOptionPane.showMessageDialog(frame, "Invalid credentials or no matching user found.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-
             createAndShowDifficultyGUI();
         } catch (SQLException | ClassNotFoundException e) {
             JOptionPane.showMessageDialog(frame, "Database error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -203,20 +185,18 @@ public class DbQuiz {
     private static void createAndShowDifficultyGUI() {
         frame.getContentPane().removeAll();
         frame.setTitle("Java Quest BUDDY - Select Difficulty");
-
         JPanel panel = new JPanel(new GridBagLayout());
         panel.setBackground(Color.WHITE);
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets((int) (10 * scaleFactor), (int) (10 * scaleFactor), (int) (10 * scaleFactor), (int) (10 * scaleFactor));
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.weightx = 1.0;
-
-        JLabel titleLabel = new JLabel("Choose a Difficulty Level");
+        gbc.weighty = 0.1;
+        JLabel titleLabel = new JLabel("Choose a Difficulty Level", SwingConstants.CENTER);
         titleLabel.setFont(getScaledBoldFont(20));
         gbc.gridx = 0;
         gbc.gridy = 0;
         panel.add(titleLabel, gbc);
-
         ButtonGroup difficultyGroup = new ButtonGroup();
         JRadioButton easyButton = createRadioButton("Easy");
         JRadioButton mediumButton = createRadioButton("Medium");
@@ -224,14 +204,12 @@ public class DbQuiz {
         difficultyGroup.add(easyButton);
         difficultyGroup.add(mediumButton);
         difficultyGroup.add(hardButton);
-
         gbc.gridy++;
         panel.add(easyButton, gbc);
         gbc.gridy++;
         panel.add(mediumButton, gbc);
         gbc.gridy++;
         panel.add(hardButton, gbc);
-
         JButton startButton = new JButton("Start Quiz");
         startButton.setFont(getScaledFont(14));
         startButton.setBackground(new Color(66, 133, 244));
@@ -249,7 +227,6 @@ public class DbQuiz {
         });
         gbc.gridy++;
         panel.add(startButton, gbc);
-
         JButton quitButton = new JButton("Quit");
         quitButton.setFont(getScaledFont(14));
         quitButton.setBackground(new Color(219, 68, 55));
@@ -258,7 +235,6 @@ public class DbQuiz {
         quitButton.addActionListener(e -> System.exit(0));
         gbc.gridy++;
         panel.add(quitButton, gbc);
-
         frame.add(panel);
         frame.revalidate();
         frame.repaint();
@@ -278,13 +254,11 @@ public class DbQuiz {
             JOptionPane.showMessageDialog(frame, "Error: The file 'questions.txt' was not found.", "Error", JOptionPane.ERROR_MESSAGE);
             System.exit(1);
         }
-
         questions = loadQuestions(inputFile, difficulty);
         if (questions.isEmpty()) {
             JOptionPane.showMessageDialog(frame, "No questions found for " + difficulty + " in 'questions.txt'.", "Error", JOptionPane.ERROR_MESSAGE);
             System.exit(1);
         }
-
         currentQuestionIndex = 0;
         score = 0;
         showQuestion();
@@ -293,7 +267,6 @@ public class DbQuiz {
     private static void showQuestion() {
         frame.getContentPane().removeAll();
         frame.setTitle("Java Quest BUDDY - " + difficulty + " Quiz");
-
         JPanel panel = new JPanel(new GridBagLayout());
         panel.setBackground(Color.WHITE);
         GridBagConstraints gbc = new GridBagConstraints();
@@ -301,7 +274,7 @@ public class DbQuiz {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.anchor = GridBagConstraints.WEST;
         gbc.weightx = 1.0;
-
+        gbc.weighty = 0.1;
         Question question = questions.get(currentQuestionIndex);
         JLabel questionLabel = new JLabel("<html><b>" + (currentQuestionIndex + 1) + ". " + question.text + "</b></html>");
         questionLabel.setFont(getScaledBoldFont(16));
@@ -309,7 +282,6 @@ public class DbQuiz {
         gbc.gridy = 0;
         gbc.gridwidth = 2;
         panel.add(questionLabel, gbc);
-
         ButtonGroup optionsGroup = new ButtonGroup();
         JRadioButton[] optionButtons = new JRadioButton[4];
         for (int i = 0; i < 4; i++) {
@@ -319,7 +291,6 @@ public class DbQuiz {
             gbc.gridwidth = 1;
             panel.add(optionButtons[i], gbc);
         }
-
         JButton submitButton = new JButton(currentQuestionIndex < questions.size() - 1 ? "Next" : "Finish");
         submitButton.setFont(getScaledFont(14));
         submitButton.setBackground(new Color(66, 133, 244));
@@ -340,32 +311,47 @@ public class DbQuiz {
             if (selectedAnswer.equals(question.correctAnswer)) {
                 score++;
             }
-            currentQuestionIndex++;
-            if (currentQuestionIndex < questions.size()) {
-                showQuestion();
-            } else {
-                showResults();
-            }
+            JDialog answerDialog = new JDialog(frame, "Correct Answer", true);
+            answerDialog.setSize((int) (300 * scaleFactor), (int) (150 * scaleFactor));
+            answerDialog.setLocationRelativeTo(frame);
+            JPanel answerPanel = new JPanel(new GridBagLayout());
+            answerPanel.setBackground(Color.WHITE);
+            GridBagConstraints answerGbc = new GridBagConstraints();
+            answerGbc.insets = new Insets((int) (10 * scaleFactor), (int) (10 * scaleFactor), (int) (10 * scaleFactor), (int) (10 * scaleFactor));
+            JLabel answerLabel = new JLabel("Correct Answer: " + question.choices[question.correctAnswer.charAt(0) - 'a']);
+            answerLabel.setFont(getScaledFont(14));
+            answerGbc.gridx = 0;
+            answerGbc.gridy = 0;
+            answerPanel.add(answerLabel, answerGbc);
+            answerDialog.add(answerPanel);
+            Timer timer = new Timer(2000, evt -> {
+                answerDialog.dispose();
+                currentQuestionIndex++;
+                if (currentQuestionIndex < questions.size()) {
+                    showQuestion();
+                } else {
+                    showResults();
+                }
+            });
+            timer.setRepeats(false);
+            timer.start();
+            answerDialog.setVisible(true);
         });
         gbc.gridy++;
         gbc.gridwidth = 2;
         panel.add(submitButton, gbc);
-
         frame.add(panel);
         frame.revalidate();
         frame.repaint();
     }
 
     private static void showResults() {
-        // Store the current quiz result
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String timestamp = now.format(formatter);
         quizHistory.add(new QuizResult(difficulty, score, questions.size(), timestamp));
-
         frame.getContentPane().removeAll();
         frame.setTitle("Java Quest BUDDY - Results");
-
         JPanel panel = new JPanel(new GridBagLayout());
         panel.setBackground(Color.WHITE);
         GridBagConstraints gbc = new GridBagConstraints();
@@ -373,8 +359,7 @@ public class DbQuiz {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.anchor = GridBagConstraints.CENTER;
         gbc.weightx = 1.0;
-
-        // Calculate score percentage
+        gbc.weighty = 0.1;
         double scorePercentage = (double) score / questions.size() * 100;
         String memeUrl;
         String memeAltText;
@@ -391,8 +376,6 @@ public class DbQuiz {
             memeUrl = "https://i.imgflip.com/9qhv2n.jpg";
             memeAltText = "Success Kid meme";
         }
-
-        // Load and display meme
         try {
             URL url = new URL(memeUrl);
             Image image = ImageIO.read(url);
@@ -410,17 +393,14 @@ public class DbQuiz {
             gbc.gridy = 0;
             panel.add(errorLabel, gbc);
         }
-
-        JLabel resultLabel = new JLabel("Your Final Score: " + score + "/" + questions.size());
+        JLabel resultLabel = new JLabel("Your Final Score: " + score + "/" + questions.size(), SwingConstants.CENTER);
         resultLabel.setFont(getScaledBoldFont(20));
         gbc.gridy++;
         panel.add(resultLabel, gbc);
-
-        JLabel difficultyLabel = new JLabel("Difficulty: " + difficulty);
+        JLabel difficultyLabel = new JLabel("Difficulty: " + difficulty, SwingConstants.CENTER);
         difficultyLabel.setFont(getScaledFont(16));
         gbc.gridy++;
         panel.add(difficultyLabel, gbc);
-
         JButton playAgainButton = new JButton("Play Again");
         playAgainButton.setFont(getScaledFont(14));
         playAgainButton.setBackground(new Color(66, 133, 244));
@@ -429,7 +409,6 @@ public class DbQuiz {
         playAgainButton.addActionListener(e -> createAndShowDifficultyGUI());
         gbc.gridy++;
         panel.add(playAgainButton, gbc);
-
         JButton historyButton = new JButton("View History");
         historyButton.setFont(getScaledFont(14));
         historyButton.setBackground(new Color(255, 159, 64));
@@ -438,7 +417,6 @@ public class DbQuiz {
         historyButton.addActionListener(e -> showHistory());
         gbc.gridy++;
         panel.add(historyButton, gbc);
-
         JButton exitButton = new JButton("Exit");
         exitButton.setFont(getScaledFont(14));
         exitButton.setBackground(new Color(219, 68, 55));
@@ -447,7 +425,6 @@ public class DbQuiz {
         exitButton.addActionListener(e -> System.exit(0));
         gbc.gridy++;
         panel.add(exitButton, gbc);
-
         frame.add(panel);
         frame.revalidate();
         frame.repaint();
@@ -457,15 +434,12 @@ public class DbQuiz {
         JDialog historyDialog = new JDialog(frame, "Quiz History", true);
         historyDialog.setSize((int) (600 * scaleFactor), (int) (400 * scaleFactor));
         historyDialog.setLocationRelativeTo(frame);
-
         JPanel panel = new JPanel(new BorderLayout());
         panel.setBackground(Color.WHITE);
-
         JTextArea historyArea = new JTextArea();
         historyArea.setFont(getScaledFont(14));
         historyArea.setEditable(false);
         historyArea.setBackground(Color.WHITE);
-
         if (quizHistory.isEmpty()) {
             historyArea.setText("No quiz history available.");
         } else {
@@ -478,10 +452,8 @@ public class DbQuiz {
             }
             historyArea.setText(historyText.toString());
         }
-
         JScrollPane scrollPane = new JScrollPane(historyArea);
         panel.add(scrollPane, BorderLayout.CENTER);
-
         JButton closeButton = new JButton("Close");
         closeButton.setFont(getScaledFont(14));
         closeButton.setBackground(new Color(66, 133, 244));
@@ -492,7 +464,6 @@ public class DbQuiz {
         buttonPanel.setBackground(Color.WHITE);
         buttonPanel.add(closeButton);
         panel.add(buttonPanel, BorderLayout.SOUTH);
-
         historyDialog.add(panel);
         historyDialog.setVisible(true);
     }
@@ -505,11 +476,9 @@ public class DbQuiz {
             Question currentQuestion = null;
             String[] choices = new String[4];
             int choiceIndex = 0;
-
             while ((line = reader.readLine()) != null) {
                 line = line.trim();
                 if (line.isEmpty()) continue;
-
                 if (line.equals(difficulty)) {
                     inDifficulty = true;
                     continue;
@@ -518,9 +487,7 @@ public class DbQuiz {
                     inDifficulty = false;
                     continue;
                 }
-
                 if (!inDifficulty) continue;
-
                 if (line.matches("\\d+\\..*")) {
                     if (currentQuestion != null && choiceIndex == 4 && currentQuestion.correctAnswer != null) {
                         currentQuestion.choices = choices;
@@ -540,7 +507,6 @@ public class DbQuiz {
                     currentQuestion.correctAnswer = fullAnswer.length() > 0 ? fullAnswer.substring(0, 1).toLowerCase() : "";
                 }
             }
-
             if (currentQuestion != null && choiceIndex == 4 && currentQuestion.correctAnswer != null) {
                 currentQuestion.choices = choices;
                 questions.add(currentQuestion);
@@ -562,7 +528,6 @@ public class DbQuiz {
         int score;
         int totalQuestions;
         String timestamp;
-
         QuizResult(String difficulty, int score, int totalQuestions, String timestamp) {
             this.difficulty = difficulty;
             this.score = score;
