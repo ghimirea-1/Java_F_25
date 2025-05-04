@@ -3,7 +3,7 @@ https://www.programiz.com/java-programming/online-compiler/
 ### **Work Division Strategy**  
 
 **Naomi’s Responsibilities – Question Management & Scoring**
-✅ Categorize question (Easy, Medium, Hard), their correct answers and options
+✅ Categorize question (Easy, Medium, Hard), their correct answers and options, basic code using array
 ✅ found meme
 
 
